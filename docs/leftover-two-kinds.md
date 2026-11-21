@@ -24,4 +24,4 @@
 
 1. 先活 GET (带 SSO JWT) + `GetGoogleObfuscatedId existingActive`, 再看 Play
 2. 不要只看 Play 列表就下结论
-3. leftover 上烙的是**别人的** `obfuscatedAccountId` 时, 直接对 dest 写回会 unable — 那是 hop 课题 (见姊妹仓库 grok-play-leftover-hop)
+3. leftover 上烙的是**别人的** `obfuscatedAccountId` 时, 直接对 dest 写回会 unable — 那是 hop 课题 (见姊妹仓库 `grok-bug-v4-account-hop`)

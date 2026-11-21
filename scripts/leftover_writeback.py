@@ -73,7 +73,7 @@ def main() -> int:
 
     # 3. fire g4
     fired = bc.fire("g4")
-    if fired.get("err"):
+    if fired.get("err") or fired.get("error") or fired.get("ok") is False:
         step("g4_fire_failed", fired)
         return 1
 

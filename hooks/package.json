@@ -1,0 +1,11 @@
+{
+  "name": "grok-bug-v3-double-g4-writeback-hooks",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sanitized research copy. Frida hooks for Grok Google Play leftover $0 writeback research.",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "frida-java-bridge": "^7.0.13"
+  }
+}

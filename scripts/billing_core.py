@@ -122,7 +122,8 @@ def compile_js(src: Path, dest: Path) -> dict[str, Any]:
         capture_output=True, text=True, timeout=40, cwd=str(HOOKS), check=False,
     )
     ok = dest.exists() and dest.stat().st_size > 100 and r.returncode == 0
-    return {"ok": ok, "src": str(src), "dest": str(dest), "stderr": (r.stderr or "")[-200:]}
+    msg = ((r.stderr or "") + "\n" + (r.stdout or "")).strip()
+    return {"ok": ok, "src": str(src), "dest": str(dest), "stderr": msg[-200:]}
 
 
 # ---------------------------------------------------------------- inspect ---
@@ -153,12 +154,12 @@ def ack_token(token: str, work: Path) -> dict[str, Any]:
     """
     if not token:
         return {"ok": False, "error": "empty_token"}
+    work.mkdir(parents=True, exist_ok=True)
     src = work / "ack.fire.js"
     compiled = work / "ack.fire.compiled.js"
     text = ACK_TMPL.read_text(encoding="utf-8")
     text = re.sub(r"var TOKEN = '[^']*'", f"var TOKEN = '{token}'", text)
     src.write_text(text, encoding="utf-8")
-    work.mkdir(parents=True, exist_ok=True)
     (work / "ack.token").write_text(token)
     comp = compile_js(src, compiled)
     if not comp.get("ok"):
