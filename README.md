@@ -1,4 +1,4 @@
-# grok-bug-v3-double-g4-writeback
+# grok-bug-v2-double-g4-writeback
 
 Google Play 已停续 `grok.ultra` leftover 的 **两次 `g(4)` 零元写回** 复现 (Grok / SuperGrok Heavy, 2026-09 变体).
 
@@ -6,9 +6,9 @@ Google Play 已停续 `grok.ultra` leftover 的 **两次 `g(4)` 零元写回** �
 
 配套技术稿: 见 `POST.md`.
 - v1 (`grok-bug-v1-deferred-upgrade`): 一次 `g(4)` Lite 一付三 deferred replacement (2026-08)
-- v2 (`grok-bug-v2-delayed-sync`): v1 失效后的延迟首次 sync 番外
-- v4 (`grok-bug-v4-account-hop`): 基于 v3 的 leftover A→B 跨账号转移 (hop)
-- v5 (`grok-bug-v5-x-subscription-ultra`): `x.subscription.ultra` 新版重建 (2026-10)
+- v1-番外 (`grok-bug-v1-extra-delayed-sync`): v1 失效后的延迟首次 sync 番外
+- v3 (`grok-bug-v3-account-hop`): 基于 v2 的 leftover A→B 跨账号转移 (hop)
+- v4 (`grok-bug-v4-x-subscription-ultra`): `x.subscription.ultra` 新版重建 (2026-10)
 
 ## 机制
 

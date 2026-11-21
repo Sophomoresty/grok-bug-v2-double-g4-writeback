@@ -1,10 +1,10 @@
 ---
-name: grok-bug-v3-double-g4-writeback
+name: grok-bug-v2-double-g4-writeback
 owner: sophomores
 description: "Use when reproducing the 2026-09 Grok leftover $0 writeback (canceled grok.ultra -> ACTIVE via g4). 当要复现空账本 leftover 写回时使用."
 ---
 
-# grok-bug-v3-double-g4-writeback (research copy)
+# grok-bug-v2-double-g4-writeback (research copy)
 
 ## Overview
 
@@ -30,7 +30,7 @@ description: "Use when reproducing the 2026-09 Grok leftover $0 writeback (cance
 - 未 ack 的 leftover 直接 g4 = "unable to change your subscription plan".
 - 墙是 `CHARGE_FULL` (today $99/$299) 一律 BACK, 不 Subscribe, 不 Pause.
 - REST 被 Cloudflare 挡不是终态结论, 换设备 uid gRPC 再判.
-- leftover 上烙别人 GID → 本仓库路径不适用, 走 hop (`grok-bug-v4-account-hop`).
+- leftover 上烙别人 GID → 本仓库路径不适用, 走 hop (`grok-bug-v3-account-hop`).
 - GET 已 ACTIVE 禁止再 POST sync, 禁止 g4 自替换.
 
 ## References

@@ -1,6 +1,6 @@
 # 两次 g4 零元写回: 利用 Play 停续旧单恢复掉单的 Grok Heavy
 
-v1 (一次 `g(4)`) 与 v2 (延迟首次 sync 番外) 都要求在未提前同步 `lite` 的前提下完成升级. 但实际排查中, 大量账号已经先同步了 `grok.lite`, 导致第一次 `g(4)` (`fromlite`) 在 xAI 侧掉单: 9 月初复查 8 月中旬遗留的约 20 只掉单账号时发现, 这些账号在 xAI 侧查询均无有效订阅, 但对应的 Google Play 购买库中仍保留着那张第一次 `g(4)` 生成的, **已取消续订** 的 `grok.ultra` 订单.
+v1 (一次 `g(4)`) 与 v1-番外 (延迟首次 sync) 都要求在未提前同步 `lite` 的前提下完成升级. 但实际排查中, 大量账号已经先同步了 `grok.lite`, 导致第一次 `g(4)` (`fromlite`) 在 xAI 侧掉单: 9 月初复查 8 月中旬遗留的约 20 只掉单账号时发现, 这些账号在 xAI 侧查询均无有效订阅, 但对应的 Google Play 购买库中仍保留着那张第一次 `g(4)` 生成的, **已取消续订** 的 `grok.ultra` 订单.
 
 以这张已停续的 `grok.ultra` 旧单作为 `oldSku`, 在 Play 侧发起**第二次 `g(4)`** 同 SKU 自替换 (`grok.ultra` -> `grok.ultra`), 写回当天实扣 `$0` 即可生成新的 Play 订单与 RTDN, 重新触发 xAI 建行 `ACTIVE`. 本文记录库存盘点分类, 同步接口验证, 两次 `g(4)` 六步写回链路以及调试过程中遇到的拦截情况.
 
@@ -126,6 +126,6 @@ curl -sS --max-time 25 --http2 --resolve grok.com:443:<edge-ip> \
 
 ## 0x06 工具与代码仓库
 
-脱敏后的驱动代码位于 GitHub 仓库 `grok-bug-v3-double-g4-writeback`, 包含六步写回脚本 `leftover_writeback.py`, Frida hook `heavy_wall.js` 以及停续单判别文档 `docs/leftover-two-kinds.md`.
+脱敏后的驱动代码位于 GitHub 仓库 `grok-bug-v2-double-g4-writeback`, 包含六步写回脚本 `leftover_writeback.py`, Frida hook `heavy_wall.js` 以及停续单判别文档 `docs/leftover-two-kinds.md`.
 
 _本文略去了具体账号与支付卡信息, 仅用于 Google Play Billing 计费机制研究, 请勿用于非自有账号._

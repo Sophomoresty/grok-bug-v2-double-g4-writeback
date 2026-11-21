@@ -1,5 +1,5 @@
 {
-  "name": "grok-bug-v3-double-g4-writeback-hooks",
+  "name": "grok-bug-v2-double-g4-writeback-hooks",
   "version": "1.0.0",
   "private": true,
   "description": "Sanitized research copy. Frida hooks for Grok Google Play leftover $0 writeback research.",
