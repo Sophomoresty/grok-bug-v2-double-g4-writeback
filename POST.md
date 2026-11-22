@@ -126,6 +126,6 @@ curl -sS --max-time 25 --http2 --resolve grok.com:443:<edge-ip> \
 
 ## 0x06 工具与代码仓库
 
-脱敏后的驱动代码位于 GitHub 仓库 `grok-bug-v2-double-g4-writeback`, 包含六步写回脚本 `leftover_writeback.py`, Frida hook `heavy_wall.js` 以及停续单判别文档 `docs/leftover-two-kinds.md`.
+脱敏后的驱动代码位于 GitHub 仓库 [https://github.com/Sophomoresty/grok-bug-v2-double-g4-writeback](https://github.com/Sophomoresty/grok-bug-v2-double-g4-writeback), 包含六步写回脚本 `leftover_writeback.py`, Frida hook `heavy_wall.js` 以及停续单判别文档 `docs/leftover-two-kinds.md`.
 
 _本文略去了具体账号与支付卡信息, 仅用于 Google Play Billing 计费机制研究, 请勿用于非自有账号._
